@@ -1,0 +1,41 @@
+/* BASE MOBILE STYLES (Default styles for all screens) */
+
+/* Set a readable font and basic spacing */
+body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 1rem;
+    line-height: 1.6;
+    background-color: #f4f4f4; [span_1](start_span)/* Basic colours[span_1](end_span) */
+}
+
+/* Navigation Styling (Stacking links for mobile) */
+nav ul {
+    list-style: none;
+    padding: 0;
+    [span_2](start_span)/* Use Flexbox for layout[span_2](end_span) */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    background-color: #333;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    width: 100%; /* Full width for better mobile targets */
+}
+
+[span_3](start_span)/* Highlight key visual elements like active page[span_3](end_span) */
+nav li a:hover,
+nav li a.active { /* You'd add the 'active' class to the current page link */
+    background-color: #007bff;
+}
+
+/* Example of Main Layout Styling */
+main {
+    padding: 1rem 0;
+}
