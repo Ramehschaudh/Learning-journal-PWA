@@ -8,20 +8,31 @@
 </head>
 <body>
 
-    <header>
-        <nav aria-label="Main Navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="journal.html" class="active">Journal</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-            </ul>
-        </nav>
-    </header>
+   <div id="nav-placeholder"></div>
+   <button id="theme-toggle">Switch to Dark Mode</button>
 
-    <main class="journal-page">
+   <main class="journal-page">
         <h1>Weekly Learning Journal</h1>
         <p>This section contains reflections and insights from each week of the module, serving as the required learning log.</p>
+        
+        <article class="journal-entry">
+    <h2>Week 3: JavaScript & DOM Manipulation (Lab 3)</h2>
+    <p>Goal: Enhanced the Learning Journal PWA by adding a reusable navigation menu and an interactive Theme Switcher using JavaScript and the HTML DOM.</p>
+    
+    <h3>Journal Questions:</h3>
+    <ol>
+        <li>Which DOM selection methods did you use, and why did you choose them?<br>
+            I used two primary methods: document.getElementById() and document.querySelectorAll(). I chose `getElementById()` (used for selecting the navigation placeholder and the theme button) because it is the fastest method and guaranteed to select only one unique element. I chose `querySelectorAll()` (used for selecting all navigation links) because it returns a list of elements that can be efficiently looped over to apply the active class or attach event listeners.
+        </li>
+        <li>What was the most challenging part about linking JavaScript with your HTML?<br>
+            The most challenging part was ensuring the reusable navigation code correctly determined which page was currently loaded to apply the `class="active"`. I encountered an error where the script failed to correctly identify the homepage file name (`index.html`) when deployed, leading to incorrect highlighting. This was fixed by implementing logic in JavaScript to specifically check for an empty path and default to 'index.html'.
+        </li>
+        <li>How did you test and debug your JavaScript code?<br>
+            I primarily tested and debugged using the browser's Developer Tools. I used the Console to check if variables were holding the correct page paths and if functions were running when expected. I used the Elements tab to verify that the `dark-mode` CSS class was being correctly added to the `<body>` element on button clicks, and that the `active` class was being applied to the correct navigation link.
+        </li>
+    </ol>
+</article>
+
         
         <article class="journal-entry">
             <h2>Week 2: Frontend Fundamentals (Lab 2)</h2>
@@ -61,6 +72,7 @@
     <footer>
         <p>&copy; 2025 Ramesh Chaudhary. All rights reserved.</p>
     </footer>
+<script src="js/script.js"></script>
 
 </body>
 </html>
