@@ -15,38 +15,75 @@
         <h1>Weekly Learning Journal</h1>
         <p>This section contains reflections and insights from each week of the module, serving as the required learning log.</p>
         
+        <section class="new-entry-form">
+            <h2>Add New Journal Entry</h2>
+            <form id="entry-form">
+                <label for="entry-title">Title:</label>
+                <input type="text" id="entry-title" required>
+                
+                <label for="entry-content">Content:</label>
+                <textarea id="entry-content" rows="5" required></textarea>
+                
+                <button type="submit">Save Entry</button>
+            </form>
+        </section>
+
+        <section id="saved-entries-container">
+        </section>
+        
         <article class="journal-entry">
-    <h2>Week 3: JavaScript & DOM Manipulation (Lab 3)</h2>
-    <p>Goal: Enhanced the Learning Journal PWA by adding a reusable navigation menu and an interactive Theme Switcher using JavaScript and the HTML DOM.</p>
-    
-    <h3>Journal Questions:</h3>
-    <ol>
-        <li>Which DOM selection methods did you use, and why did you choose them?<br>
-            I used two primary methods: document.getElementById() and document.querySelectorAll(). I chose `getElementById()` (used for selecting the navigation placeholder and the theme button) because it is the fastest method and guaranteed to select only one unique element. I chose `querySelectorAll()` (used for selecting all navigation links) because it returns a list of elements that can be efficiently looped over to apply the active class or attach event listeners.
-        </li>
-        <li>What was the most challenging part about linking JavaScript with your HTML?<br>
-            The most challenging part was ensuring the reusable navigation code correctly determined which page was currently loaded to apply the `class="active"`. I encountered an error where the script failed to correctly identify the homepage file name (`index.html`) when deployed, leading to incorrect highlighting. This was fixed by implementing logic in JavaScript to specifically check for an empty path and default to 'index.html'.
-        </li>
-        <li>How did you test and debug your JavaScript code?<br>
-            I primarily tested and debugged using the browser's Developer Tools. I used the Console to check if variables were holding the correct page paths and if functions were running when expected. I used the Elements tab to verify that the `dark-mode` CSS class was being correctly added to the `<body>` element on button clicks, and that the `active` class was being applied to the correct navigation link.
-        </li>
-    </ol>
-</article>
+            <h2>Week 4: Introduction to API (Lab 4)</h2>
+            <p>Goal: Extended the Learning Journal PWA by integrating three different types of APIs (Storage, Browser, and Third-Party) to enhance persistence and interactivity.</p>
+            
+            <h3>Journal Questions:</h3>
+            <ol>
+                <li><strong>Which Storage, Browser, and Third-Party APIs did you choose, and why?</strong><br>
+                    I chose the Local Storage API for persistent data storage because it is simple, fast, and ideal for saving light structured data like user-submitted journal entries directly in the browser. I chose the Clipboard API for the Browser API task as it provides useful, modern user functionality (copying text) that significantly improves the journal page's usability. Finally, I chose the Spotify Widget (iFrame) for the Third-Party API because it is a fast and simple method to integrate rich, external media content (music) into the About page.
+                </li>
+                <li><strong>How did you integrate each API with DOM manipulation?</strong><br>
+                    For the Local Storage API, DOM manipulation was crucial: upon page load, JavaScript retrieved the stored JSON array of entries, converted it back to HTML strings, and used `container.innerHTML` to display the content in the `saved-entries-container`. For the Clipboard API, an event listener was attached to copy buttons, and DOM manipulation was used to change the button's `textContent` from "Copy Entry" to "Copied!" for 1.5 seconds, providing user feedback. The Spotify Widget was integrated by placing its static `iframe` structure directly into the `about.html` file.
+                </li>
+                <li><strong>What challenges did you encounter, and how did you solve them?</strong><br>
+                    The main challenge was ensuring the dynamically created content from the Storage API worked with the Clipboard API. When a user saves a new entry, the copy button for that entry must also work. I solved this by using an event delegation approach: instead of attaching click listeners directly to each button (which would fail for new buttons), I listened for clicks on the document and checked if the clicked element had the class `copy-button`. This ensures copy functionality works for both static and dynamically created entries.
+                </li>
+                <li><strong>In what ways do these APIs improve your Learning Journal PWA?</strong><br>
+                    These APIs significantly improve the PWA's functionality. The Local Storage gives the application persistence, meaning user-submitted journal entries are never lost. The Clipboard API adds a useful quality-of-life feature, simplifying the sharing or archiving of entries. The Spotify Widget makes the profile page more engaging by integrating external, multimedia content, fulfilling the goal of making the PWA more powerful and interactive.
+                </li>
+            </ol>
+        </article>
+
+        <article class="journal-entry">
+            <h2>Week 3: JavaScript & DOM Manipulation (Lab 3)</h2>
+            <p id="entry-content-w3">Goal: Enhanced the Learning Journal PWA by adding a reusable navigation menu and an interactive Theme Switcher using JavaScript and the HTML DOM.</p>
+            <button class="copy-button" data-target="entry-content-w3">Copy Entry</button>
+            <h3>Journal Questions:</h3>
+            <ol>
+                <li><strong>Which DOM selection methods did you use, and why did you choose them?</strong><br>
+                    I used two primary methods: document.getElementById() and document.querySelectorAll(). I chose `getElementById()` (used for selecting the navigation placeholder and the theme button) because it is the fastest method and guaranteed to select only one unique element. I chose `querySelectorAll()` (used for selecting all navigation links) because it returns a list of elements that can be efficiently looped over to apply the active class or attach event listeners.
+                </li>
+                <li><strong>What was the most challenging part about linking JavaScript with your HTML?</strong><br>
+                    The most challenging part was ensuring the reusable navigation code correctly determined which page was currently loaded to apply the `class="active"`. I encountered an error where the script failed to correctly identify the homepage file name (`index.html`) when deployed, leading to incorrect highlighting. This was fixed by implementing logic in JavaScript to specifically check for an empty path and default to 'index.html'.
+                </li>
+                <li><strong>How did you test and debug your JavaScript code?</strong><br>
+                    I primarily tested and debugged using the browser's Developer Tools. I used the Console to check if variables were holding the correct page paths and if functions were running when expected. I used the Elements tab to verify that the `dark-mode` CSS class was being correctly added to the `<body>` element on button clicks, and that the `active` class was being applied to the correct navigation link.
+                </li>
+            </ol>
+        </article>
 
         
         <article class="journal-entry">
             <h2>Week 2: Frontend Fundamentals (Lab 2)</h2>
-            <p>Goal: Established the basic structure, layout, and navigation of the Learning Journal PWA using only HTML and CSS, with a focus on responsive, mobile-first design.</p>
-            
+            <p id="entry-content-w2">Goal: Established the basic structure, layout, and navigation of the Learning Journal PWA using only HTML and CSS, with a focus on responsive, mobile-first design.</p>
+            <button class="copy-button" data-target="entry-content-w2">Copy Entry</button>
             <h3>Journal Questions:</h3>
             <ol>
-                <li>How did you approach mobile-first design?<br>
+                <li><strong>How did you approach mobile-first design?</strong><br>
                     I adopted a mobile-first strategy by ensuring the CSS was written primarily for small screen sizes (phones) by default. I first styled the main elements, such as the body, fonts, and colours. Critically, I used Flexbox on the navigation (nav ul) to stack the links vertically (flex-direction: column), making them large touch targets suitable for mobile. Only after the mobile layout was complete did I use a CSS media query (@media screen and (min-width: 768px)) to override those styles, changing the navigation to a horizontal row and centering the content for tablet and desktop views.
                 </li>
-                <li>What was the most useful HTML or CSS concept you applied this week?<br>
+                <li><strong>What was the most useful HTML or CSS concept you applied this week?</strong><br>
                     The most useful concept was Flexbox. It was essential for creating a responsive navigation bar. By switching the flex-direction property based on screen size, I maintained layout consistency and adapted the design effectively between mobile and desktop. This satisfied the requirement to build the skeleton structure and design layout using HTML and CSS only.
                 </li>
-                <li>What part of HTML or CSS did you find most challenging or confusing?<br>
+                <li><strong>What part of HTML or CSS did you find most challenging or confusing?</strong><br>
                     The most challenging part was ensuring the "active" page highlighting worked correctly across all four HTML pages (index.html, journal.html, etc.). Since JavaScript was excluded for this week's task, I had to manually place the class="active" tag on the current page's link in each of the four separate HTML files. This repeated manual effort was tedious and highlighted the need for a templating system or JavaScript component loading for navigation reusability in future weeks.
                 </li>
             </ol>
@@ -54,15 +91,15 @@
 
         <article class="journal-entry">
             <h2>Week 1: Introduction and PWA (Lab 1)</h2>
-            <p>Goal: Become familiar with running applications across multiple platforms (GitHub, VS Code, PythonAnywhere, Android Studio) by building the Temperature Converter PWA.</p>
-            
+            <p id="entry-content-w1">Goal: Become familiar with running applications across multiple platforms (GitHub, VS Code, PythonAnywhere, Android Studio) by building the Temperature Converter PWA.</p>
+            <button class="copy-button" data-target="entry-content-w1">Copy Entry</button>
             <h3>Lab 1 Reflection and Challenges:</h3>
             <ul>
-                <li>Steps Followed & Technologies: Describe the steps using GitHub, VS Code, PythonAnywhere, Android Studio, PWA, and Kotlin code.
-                    <p>The lab began with GitHub setup, creating the Temperature ConverterPWA repository and integrating with VS Code by installing Git and the GitHub extensions. I used VS Code to open the repository remotely, create the initial index.html and commit the changes. Next, I deployed the site using GitHub Pages after changing the repository visibility to public. The PWA was built by adding the **manifest.json** for installability, the main UI (HTML form, converter.css for styling, and converter.js for conversion logic). Finally, a Service Worker (sw.js) was added to enable offline functionality. I also tested deploying the same files to PythonAnywhere and followed instructions to run a Kotlin-based Temperature Converter app in Android Studio.</p>
+                <li><strong>Steps Followed & Technologies:</strong> Describe the steps using GitHub, VS Code, PythonAnywhere, Android Studio, PWA, and Kotlin code.<br>
+                    The lab began with GitHub setup, creating the Temperature ConverterPWA repository and integrating with VS Code by installing Git and the GitHub extensions. I used VS Code to open the repository remotely, create the initial index.html and commit the changes. Next, I deployed the site using GitHub Pages after changing the repository visibility to public. The PWA was built by adding the **manifest.json** for installability, the main UI (HTML form, converter.css for styling, and converter.js for conversion logic). Finally, a Service Worker (sw.js) was added to enable offline functionality. I also tested deploying the same files to PythonAnywhere and followed instructions to run a Kotlin-based Temperature Converter app in Android Studio.
                 </li>
-                <li>Challenges Faced: Describe any difficulties you encountered while running the code or configuring the platforms.
-                    <p>One challenge was ensuring the correct relative paths were used for the PWA manifest and Service Worker references (e.g., /manifest.json and /sw.js). Incorrect paths prevented the app from being installed or working offline. Another area of complexity was setting up Android Studio and running the Kotlin app, as it required downloading and configuring SDKs and emulators, which was significantly more complex than the web deployments (GitHub Pages and PythonAnywhere).</p>
+                <li><strong>Challenges Faced:</strong> Describe any difficulties you encountered while running the code or configuring the platforms.<br>
+                    One challenge was ensuring the correct relative paths were used for the PWA manifest and Service Worker references (e.g., /manifest.json and /sw.js). Incorrect paths prevented the app from being installed or working offline. Another area of complexity was setting up Android Studio and running the Kotlin app, as it required downloading and configuring SDKs and emulators, which was significantly more complex than the web deployments (GitHub Pages and PythonAnywhere).
                 </li>
             </ul>
         </article>
@@ -70,9 +107,11 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Ramesh Chaudhary. All rights reserved.</p>
+        <p>© 2025 Ramesh Chaudhary. All rights reserved.</p>
     </footer>
-<script src="js/script.js"></script>
-
+    
+    <script src="js/storage.js"></script>
+    <script src="js/browser.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
