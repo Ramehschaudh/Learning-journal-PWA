@@ -4,7 +4,7 @@
 
 :root {
     /* Updated Primary Color: Teal/Cyan (Slightly greenish blue) */
-    --primary-color: #00bcd4; /* A vibrant Cyan for headings and highlights */
+    --primary-color: #00bcd4; 
     --secondary-color: #607d8b; /* Darker gray for accents/footer text */
     --background-color: #f8f9fa;
     --text-color: #343a40;
@@ -54,7 +54,7 @@ nav li a {
 /* Highlight key visual elements: Active page and hover state */
 nav li a:hover,
 nav li a.active { 
-    background-color: var(--primary-color); /* Highlight now uses the greenish blue */
+    background-color: var(--primary-color); 
     color: white;
 }
 
@@ -73,31 +73,44 @@ footer {
     margin-top: 2rem;
 }
 
-/* ==================================== */
-/* 💻 MEDIA QUERY FOR TABLET/DESKTOP (> 768px) */
-/* ==================================== */
-
-@media screen and (min-width: 768px) {
-    
-    /* Center the main content area */
-    main {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
-    /* Navigation Layout (Desktop: Row) */
-    nav ul {
-        flex-direction: row; /* Horizontal links for desktop */
-        justify-content: center;
-    }
-
-    nav li a {
-        border-bottom: none;
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
-    }
+/* --- Theme Switcher Button Style (Lab 3) --- */
+#theme-toggle {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
-/* --- DARK MODE STYLES (Added for Interactive Feature) --- */
+
+/* --- About Page Profile Image Styling (Mobile Base) --- */
+
+.profile-card {
+    display: flex; 
+    flex-direction: column; /* Stack image and text vertically on mobile */
+    align-items: center; 
+    padding: 1rem;
+    text-align: center;
+}
+
+.profile-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Makes image round */
+    width: 150px; 
+    height: 150px;
+    object-fit: cover; 
+    border: 3px solid var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.bio {
+    padding-top: 1rem;
+}
+
+/* --- DARK MODE STYLES (Lab 3) --- */
 
 .dark-mode {
     /* Define colors for dark mode */
@@ -121,15 +134,47 @@ footer {
     color: var(--secondary-color);
 }
 
-/* Style the button */
-#theme-toggle {
-    display: block;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
 
+/* ==================================== */
+/* 💻 MEDIA QUERY FOR TABLET/DESKTOP (> 768px) */
+/* ==================================== */
+
+@media screen and (min-width: 768px) {
+    
+    /* Center the main content area */
+    main {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    /* Navigation Layout (Desktop: Row) */
+    nav ul {
+        flex-direction: row; 
+        justify-content: center;
+    }
+
+    nav li a {
+        border-bottom: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* --- About Page Profile Image Styling (Desktop Adjustments) --- */
+    .profile-card {
+        flex-direction: row; /* Horizontal layout */
+        text-align: left;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+    
+    .profile-card img {
+        width: 200px;
+        height: 200px;
+        flex-shrink: 0; 
+    }
+
+    .bio {
+        flex-grow: 1;
+        padding-top: 0;
+    }
+}
