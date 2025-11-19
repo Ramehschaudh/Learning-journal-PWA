@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "id": 1700000000000,
+    "title": "Python Backend Integration",
+    "content": "This entry demonstrates JSON file storage working alongside browser localStorage. The structured format allows seamless data exchange between Python scripts and JavaScript.",
+    "date": "2025-11-19",
+    "time": "11:32:00",
+    "source": "python"
+  },
+  {
+    "id": 1700000000001,
+    "title": "File-Based Data Persistence",
+    "content": "JSON files provide cross-platform compatibility while maintaining human-readable structure. Perfect for learning journals where data portability matters.",
+    "date": "2025-11-19", 
+    "time": "11:46:00",
+    "source": "python"
+  }
+]
